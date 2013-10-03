@@ -9,10 +9,13 @@
 <body>
 <% if signed_in? %>
   <%= link_to('[logout]', :destroy_user_session, method: :delete) %>
+  <%= link_to('[upload]', :new_upload) %>
 <% else %>
   <%= link_to('[login]', :user_session, method: :post) %>
 <% end %>
-
+<%= link_to('[pictarrgghs]', :uploads) %>
+<%= link_to('[friends pictarrgghs]', controller: 'uploads', action: :friend_stream) %>
+<br>
 <%= yield %>
 
 </body>
