@@ -1,2 +1,6 @@
-<h1>Uploads#show</h1>
-<p>Find me in app/views/uploads/show.html.erb</p>
+<br>
+<%= image_tag @upload.photo %>
+<% if current_user == @upload.user %>
+  <br>
+  <%= link_to "delete", upload_path(@upload), method: :delete %>
+<% end %>
