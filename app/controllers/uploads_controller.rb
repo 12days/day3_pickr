@@ -25,7 +25,7 @@ class UploadsController < ApplicationController
   end
 
   def friend_stream
-    @uploads = Uploads.find_all_by_user_id(current_user.friends.ids)
+    @uploads = Upload.find_all_by_user_id(current_user.friends.ids)
   end
 
   private
