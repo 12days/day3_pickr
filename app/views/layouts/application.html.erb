@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <% if signed_in? %>
   <%= link_to('[logout]', :destroy_user_session, method: :delete) %>
   <%= link_to('[upload]', :new_upload) %>
@@ -18,5 +19,15 @@
 <br>
 <%= yield %>
 
+  <div class="container">
+    <% if signed_in? %>
+      <%= link_to('[logout]', :destroy_user_session, method: :delete) %>
+    <% else %>
+      <%= link_to('[login]', :user_session, method: :post) %>
+    <% end %>
+
+    <%= yield %>
+
+  </div>
 </body>
 </html>
