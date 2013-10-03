@@ -5,6 +5,6 @@ Pickr::Application.routes.draw do
 
   root to: "uploads#index"
   resources :uploads, path: 'pictures'
-  get 'uploads/friends' => 'uploads#friend_stream'
+  get 'friends/uploads' => 'uploads#friend_stream'
 
 end

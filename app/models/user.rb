@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :uploads
+  has_many :user_friends
   has_many :invited_friends, class_name: 'Friendrequest', foreign_key: 'inviter_id'
   has_many :friend_invites, class_name: 'Friendrequest' , foreign_key: 'invitee_id'
+  has_many :friends, through: :user_friends
 end
