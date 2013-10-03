@@ -1,0 +1,7 @@
+<% @user %><br><br>
+<h3>Your profile page</h3>
+<%= "Welcome back #{@user.email}" %>
+
+<br><br>
+<h4>Pending friend requests</h4>
+<%= @friendrequest ? 'someone wants to meet you' : 'no one wants to talk to you' %>
