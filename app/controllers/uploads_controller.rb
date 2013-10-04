@@ -1,5 +1,6 @@
 class UploadsController < ApplicationController
   def index
+    @uploads = Upload.all(:limit => 10)
   end
 
   def show
@@ -25,7 +26,7 @@ class UploadsController < ApplicationController
   end
 
   def friend_stream
-    @uploads = Upload.find_all_by_user_id(current_user.friends.ids)
+    @uploads = Upload.all.where("user_id = ?", current_user.friend_ids)
   end
 
   private
