@@ -1,7 +1,8 @@
 Pickr::Application.routes.draw do
 
+  resources :friendships, only: [:create, :destroy]
   devise_for :users
-  get "users/show/:id" => "users#show"
+  get "profile/:id" => "users#show", as: 'profile'
 
   root to: "uploads#index"
   resources :uploads, path: 'pictures'

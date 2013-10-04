@@ -24,9 +24,9 @@ class User < ActiveRecord::Base
   end
 
   def true_friendships
-    inverse = inverse_friend_ids
-    accepted = friend_ids.select{|id| inverse.include?(id) }
-    friendships.where("friend_id = ?", accepted)
+    sent = friend_ids
+    inverse = inverse_friend_ids.select{|id| sent.include?(id) }
+    inverse_friendships.where("user_id = ?", inverse)
   end
 
   def add_friend(user)
