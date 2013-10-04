@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003202224) do
+ActiveRecord::Schema.define(version: 20131004010337) do
 
-  create_table "friendrequests", force: true do |t|
-    t.integer  "inviter_id"
-    t.integer  "invitee_id"
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,13 +27,6 @@ ActiveRecord::Schema.define(version: 20131003202224) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "userfriends", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

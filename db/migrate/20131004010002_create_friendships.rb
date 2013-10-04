@@ -1,6 +1,6 @@
-class CreateUserfriends < ActiveRecord::Migration
+class CreateFriendships < ActiveRecord::Migration
   def change
-    create_table :userfriends do |t|
+    create_table :friendships do |t|
       t.integer :user_id
       t.integer :friend_id
 
