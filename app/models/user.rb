@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     friendships.where("friend_id = ?", accepted)
   end
 
+  def add_friend(user)
+    Friendship.create!(user_id: self.id, friend_id: user.id)
+  end
+
   def remove_friend(user)
     Friendship.all.where(user_id: self.id, friend_id: user.id).delete_all
     Friendship.all.where(user_id: user.id, friend_id: self.id).delete_all
