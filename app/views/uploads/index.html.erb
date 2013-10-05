@@ -1,3 +1,4 @@
-<% Upload.all.each do |upload|  %>
-  <%= image_tag upload.photo %>
+<% @uploads.each do |upload|  %>
+  <%= link_to image_tag(upload.photo), upload_path(upload) %>
+  <br><br>
 <% end %>

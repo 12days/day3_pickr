@@ -1,7 +1,18 @@
-<% @user %><br><br>
-<h3>Your profile page</h3>
-<%= "Welcome back #{@user.email}" %>
+<h3>Profile page</h3>
+<%= @user == current_user ? "Welcome back #{current_user.email}" : "Please login" %>
 
-<br><br>
-<h4>Pending friend requests</h4>
-<%= @friendrequest ? 'someone wants to meet you' : 'no one wants to talk to you' %>
+<br>
+<h4>Friends</h4>
+
+<% @user.true_friendships.each do |friendship| %>
+  <%= friendship.user.email %>
+  <%= link_to "delete", friendship_path(:friendship_id => friendship.id), method: :delete %>
+<% end %>
+
+<br>
+<h4>Friendship request</h4>
+<% @user.received_invites.each do |invite| %>
+  <%= "#{invite.user.email} wants to meet you" %>
+  <%= link_to "accept", friendships_path(:friendship_id => invite.id), method: :post %>
+  <%= link_to "decline", friendship_path(:friendship_id => invite.id), method: :delete %>
+<% end %>
