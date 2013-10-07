@@ -1,28 +1,32 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
+gem 'paperclip'
+gem 'devise'
 gem 'twitter-bootstrap-rails'
+gem 'therubyracer', platforms: :ruby
+gem 'sorcery'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-group :developmet, :test do
-  gem 'rspec-rails', '~> 2.0'
+group :assets do
+  gem 'sass-rails', '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0.0'
+  gem 'uglifier', '>= 1.3.0'
 end
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails', '~> 2.0'
+  gem 'guard'
+  gem 'guard-rspec'
+end
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor'
+end
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'better_errors', '>= 0.7.2', :group => :development
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -32,24 +36,3 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
-gem 'paperclip'
-
-gem 'devise'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
